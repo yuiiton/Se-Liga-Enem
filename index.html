@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Se Liga Enem</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                        <path d="M16 4L4 10L16 16L28 10L16 4Z" fill="currentColor"/>
+                        <path d="M4 16L16 22L28 16" stroke="currentColor" stroke-width="2"/>
+                        <path d="M4 22L16 28L28 22" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    <h1>Se Liga ENEM</h1>
+                </div>
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            
+            <nav class="nav-menu">
+                <button class="nav-item active" data-section="media-simples">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M10 2L2 6L10 10L18 6L10 2Z" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M2 10L10 14L18 10" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                    <span>Média Simples</span>
+                </button>
+                
+                <button class="nav-item" data-section="media-ponderada">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <rect x="3" y="3" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M7 10H13M10 7V13" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                    <span>Média Ponderada</span>
+                </button>
+                
+                <button class="nav-item" data-section="simulador-sisu">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M10 2V18M2 10H18" stroke="currentColor" stroke-width="1.5"/>
+                        <circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                    <span>Simulador SISU</span>
+                </button>
+                
+                <button class="nav-item" data-section="comparar-notas">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M3 10H17M3 5H17M3 15H17" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                    <span>Comparar Notas</span>
+                </button>
+                
+                <button class="nav-item" data-section="sugestao-foco">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M10 2L12.5 7.5L18 8L14 12.5L15 18L10 15L5 18L6 12.5L2 8L7.5 7.5L10 2Z" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                    <span>Sugestão de Foco</span>
+                </button>
+                
+                <!-- Added Cursos navigation item -->
+                <button class="nav-item" data-section="cursos">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M4 6H16M4 10H16M4 14H16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        <rect x="2" y="3" width="16" height="14" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                    </svg>
+                    <span>Cursos</span>
+                </button>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="api-config">
+                    <label for="apiUrl">Se Liga Enem<br>Versão de desenvolvimento</label>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Added Cursos Section -->
+            <section class="content-section" id="cursos">
+                <div class="section-header">
+                    <h2>Informações de Cursos</h2>
+                    <p>Consulte informações detalhadas sobre os cursos disponíveis</p>
+                </div>
+                
+                <form class="form-card" id="formCursos">
+                    <div class="form-grid">
+                        <div class="form-group full-width">
+                            <label for="curso-info">Selecione um Curso</label>
+                            <select id="curso-info" name="curso" required>
+                                <option value="">Selecione um curso...</option>
+                                <option value="ADMINISTRAÇÃO">ADMINISTRAÇÃO</option>
+                                <option value="ARTES VISUAIS">ARTES VISUAIS</option>
+                                <option value="ASTRONOMIA">ASTRONOMIA</option>
+                                <option value="BIBLIOTECONOMIA E DOCUMENTAÇÃO">BIBLIOTECONOMIA E DOCUMENTAÇÃO</option>
+                                <option value="CINEMA E AUDIOVISUAL">CINEMA E AUDIOVISUAL</option>
+                                <option value="CIÊNCIA DA COMPUTAÇÃO">CIÊNCIA DA COMPUTAÇÃO</option>
+                                <option value="CIÊNCIAS ATUARIAIS">CIÊNCIAS ATUARIAIS</option>
+                                <option value="CIÊNCIAS BIOLÓGICAS">CIÊNCIAS BIOLÓGICAS</option>
+                                <option value="CIÊNCIAS CONTÁBEIS">CIÊNCIAS CONTÁBEIS</option>
+                                <option value="CIÊNCIAS DA RELIGIÃO">CIÊNCIAS DA RELIGIÃO</option>
+                                <option value="CIÊNCIAS ECONÔMICAS">CIÊNCIAS ECONÔMICAS</option>
+                                <option value="CIÊNCIAS SOCIAIS">CIÊNCIAS SOCIAIS</option>
+                                <option value="DANÇA">DANÇA</option>
+                                <option value="DESIGN">DESIGN</option>
+                                <option value="DIREITO">DIREITO</option>
+                                <option value="ECOLOGIA">ECOLOGIA</option>
+                                <option value="EDUCAÇÃO FÍSICA">EDUCAÇÃO FÍSICA</option>
+                                <option value="ENFERMAGEM">ENFERMAGEM</option>
+                                <option value="ENGENHARIA AGRÍCOLA">ENGENHARIA AGRÍCOLA</option>
+                                <option value="ENGENHARIA AGRONÔMICA">ENGENHARIA AGRONÔMICA</option>
+                                <option value="ENGENHARIA AMBIENTAL E SANITÁRIA">ENGENHARIA AMBIENTAL E SANITÁRIA</option>
+                                <option value="ENGENHARIA CIVIL">ENGENHARIA CIVIL</option>
+                                <option value="ENGENHARIA DE ALIMENTOS">ENGENHARIA DE ALIMENTOS</option>
+                                <option value="ENGENHARIA DE COMPUTAÇÃO">ENGENHARIA DE COMPUTAÇÃO</option>
+                                <option value="ENGENHARIA DE MATERIAIS">ENGENHARIA DE MATERIAIS</option>
+                                <option value="ENGENHARIA DE PESCA">ENGENHARIA DE PESCA</option>
+                                <option value="ENGENHARIA DE PETRÓLEO">ENGENHARIA DE PETRÓLEO</option>
+                                <option value="ENGENHARIA DE PRODUÇÃO">ENGENHARIA DE PRODUÇÃO</option>
+                                <option value="ENGENHARIA ELÉTRICA">ENGENHARIA ELÉTRICA</option>
+                                <option value="ENGENHARIA ELETRÔNICA">ENGENHARIA ELETRÔNICA</option>
+                                <option value="ENGENHARIA FLORESTAL">ENGENHARIA FLORESTAL</option>
+                                <option value="ENGENHARIA MECÂNICA">ENGENHARIA MECÂNICA</option>
+                                <option value="ENGENHARIA QUÍMICA">ENGENHARIA QUÍMICA</option>
+                                <option value="ESTATÍSTICA">ESTATÍSTICA</option>
+                                <option value="FARMÁCIA">FARMÁCIA</option>
+                                <option value="FILOSOFIA">FILOSOFIA</option>
+                                <option value="FÍSICA">FÍSICA</option>
+                                <option value="FÍSICA MÉDICA">FÍSICA MÉDICA</option>
+                                <option value="FISIOTERAPIA">FISIOTERAPIA</option>
+                                <option value="FONOAUDIOLOGIA">FONOAUDIOLOGIA</option>
+                                <option value="GEOGRAFIA">GEOGRAFIA</option>
+                                <option value="GEOLOGIA">GEOLOGIA</option>
+                                <option value="HISTÓRIA">HISTÓRIA</option>
+                                <option value="JORNALISMO">JORNALISMO</option>
+                                <option value="LETRAS ESPANHOL">LETRAS ESPANHOL</option>
+                                <option value="LETRAS FRANCÊS">LETRAS FRANCÊS</option>
+                                <option value="LETRAS INGLÊS">LETRAS INGLÊS</option>
+                                <option value="LETRAS LIBRAS">LETRAS LIBRAS</option>
+                                <option value="LETRAS PORTUGUÊS">LETRAS PORTUGUÊS</option>
+                                <option value="LETRAS PORTUGUÊS E INGLÊS">LETRAS PORTUGUÊS E INGLÊS</option>
+                                <option value="MATEMÁTICA">MATEMÁTICA</option>
+                                <option value="MATEMÁTICA APLICADA E COMPUTAÇÃO">MATEMÁTICA APLICADA E COMPUTAÇÃO</option>
+                                <option value="MEDICINA">MEDICINA</option>
+                                <option value="MEDICINA VETERINÁRIA">MEDICINA VETERINÁRIA</option>
+                                <option value="MUSEOLOGIA">MUSEOLOGIA</option>
+                                <option value="MÚSICA">MÚSICA</option>
+                                <option value="NUTRIÇÃO">NUTRIÇÃO</option>
+                                <option value="ODONTOLOGIA">ODONTOLOGIA</option>
+                                <option value="PEDAGOGIA">PEDAGOGIA</option>
+                                <option value="PSICOLOGIA">PSICOLOGIA</option>
+                                <option value="PUBLICIDADE E PROPAGANDA">PUBLICIDADE E PROPAGANDA</option>
+                                <option value="QUÍMICA">QUÍMICA</option>
+                                <option value="QUÍMICA INDUSTRIAL">QUÍMICA INDUSTRIAL</option>
+                                <option value="RELAÇÕES INTERNACIONAIS">RELAÇÕES INTERNACIONAIS</option>
+                                <option value="SECRETARIADO EXECUTIVO">SECRETARIADO EXECUTIVO</option>
+                                <option value="SERVIÇO SOCIAL">SERVIÇO SOCIAL</option>
+                                <option value="SISTEMAS DE INFORMAÇÃO">SISTEMAS DE INFORMAÇÃO</option>
+                                <option value="TEATRO">TEATRO</option>
+                                <option value="TURISMO">TURISMO</option>
+                                <option value="ZOOTECNIA">ZOOTECNIA</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">Consultar Curso</button>
+                </form>
+                
+                <div class="result-card" id="resultCursos" style="display: none;">
+                    <h3>Informações do Curso</h3>
+                    <div class="result-content"></div>
+                </div>
+            </section>
+            <!-- Media Simples Section -->
+            <section class="content-section active" id="media-simples">
+                <div class="section-header">
+                    <h2>Média Simples</h2>
+                    <p>Calcule sua média simples do ENEM</p>
+                </div>
+                
+                <form class="form-card" id="formMediaSimples">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="linguagens">Linguagens</label>
+                            <input type="number" id="linguagens" name="linguagens" min="0" max="1000" step="0.1" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="humanas">Ciências Humanas</label>
+                            <input type="number" id="humanas" name="humanas" min="0" max="1000" step="0.1" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="natureza">Ciências da Natureza</label>
+                            <input type="number" id="natureza" name="natureza" min="0" max="1000" step="0.1" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="matematica">Matemática</label>
+                            <input type="number" id="matematica" name="matematica" min="0" max="1000" step="0.1" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="redacao">Redação</label>
+                            <input type="number" id="redacao" name="redacao" min="0" max="1000" step="0.1" required>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">Calcular Média</button>
+                </form>
+                
+                <div class="result-card" id="resultMediaSimples" style="display: none;">
+                    <h3>Resultado</h3>
+                    <div class="result-content"></div>
+                </div>
+            </section>
+
+            <!-- Media Ponderada Section -->
+            <section class="content-section" id="media-ponderada">
+                <div class="section-header">
+                    <h2>Média Ponderada</h2>
+                    <p>Calcule sua média ponderada para um curso específico</p>
+                </div>
+                
+                <form class="form-card" id="formMediaPonderada">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="linguagens-pond">Linguagens</label>
+                            <input type="number" id="linguagens-pond" name="linguagens" min="0" max="1000" step="0.1" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="humanas-pond">Ciências Humanas</label>
+                            <input type="number" id="humanas-pond" name="humanas" min="0" max="1000" step="0.1" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="natureza-pond">Ciências da Natureza</label>
+                            <input type="number" id="natureza-pond" name="natureza" min="0" max="1000" step="0.1" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="matematica-pond">Matemática</label>
+                            <input type="number" id="matematica-pond" name="matematica" min="0" max="1000" step="0.1" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="redacao-pond">Redação</label>
+                            <input type="number" id="redacao-pond" name="redacao" min="0" max="1000" step="0.1" required>
+                        </div>
+                        
+                        <!-- Replaced text input with select dropdown for course selection -->
+                        <div class="form-group full-width">
+                            <label for="curso-pond">Curso</label>
+                            <select id="curso-pond" name="curso" required>
+                                <option value="">Selecione um curso...</option>
+                                <option value="ADMINISTRAÇÃO">ADMINISTRAÇÃO</option>
+                                <option value="ARTES VISUAIS">ARTES VISUAIS</option>
+                                <option value="ASTRONOMIA">ASTRONOMIA</option>
+                                <option value="BIBLIOTECONOMIA E DOCUMENTAÇÃO">BIBLIOTECONOMIA E DOCUMENTAÇÃO</option>
+                                <option value="CINEMA E AUDIOVISUAL">CINEMA E AUDIOVISUAL</option>
+                                <option value="CIÊNCIA DA COMPUTAÇÃO">CIÊNCIA DA COMPUTAÇÃO</option>
+                                <option value="CIÊNCIAS ATUARIAIS">CIÊNCIAS ATUARIAIS</option>
+                                <option value="CIÊNCIAS BIOLÓGICAS">CIÊNCIAS BIOLÓGICAS</option>
+                                <option value="CIÊNCIAS CONTÁBEIS">CIÊNCIAS CONTÁBEIS</option>
+                                <option value="CIÊNCIAS DA RELIGIÃO">CIÊNCIAS DA RELIGIÃO</option>
+                                <option value="CIÊNCIAS ECONÔMICAS">CIÊNCIAS ECONÔMICAS</option>
+                                <option value="CIÊNCIAS SOCIAIS">CIÊNCIAS SOCIAIS</option>
+                                <option value="DANÇA">DANÇA</option>
+                                <option value="DESIGN">DESIGN</option>
+                                <option value="DIREITO">DIREITO</option>
+                                <option value="ECOLOGIA">ECOLOGIA</option>
+                                <option value="EDUCAÇÃO FÍSICA">EDUCAÇÃO FÍSICA</option>
+                                <option value="ENFERMAGEM">ENFERMAGEM</option>
+                                <option value="ENGENHARIA AGRÍCOLA">ENGENHARIA AGRÍCOLA</option>
+                                <option value="ENGENHARIA AGRONÔMICA">ENGENHARIA AGRONÔMICA</option>
+                                <option value="ENGENHARIA AMBIENTAL E SANITÁRIA">ENGENHARIA AMBIENTAL E SANITÁRIA</option>
+                                <option value="ENGENHARIA CIVIL">ENGENHARIA CIVIL</option>
+                                <option value="ENGENHARIA DE ALIMENTOS">ENGENHARIA DE ALIMENTOS</option>
+                                <option value="ENGENHARIA DE COMPUTAÇÃO">ENGENHARIA DE COMPUTAÇÃO</option>
+                                <option value="ENGENHARIA DE MATERIAIS">ENGENHARIA DE MATERIAIS</option>
+                                <option value="ENGENHARIA DE PESCA">ENGENHARIA DE PESCA</option>
+                                <option value="ENGENHARIA DE PETRÓLEO">ENGENHARIA DE PETRÓLEO</option>
+                                <option value="ENGENHARIA DE PRODUÇÃO">ENGENHARIA DE PRODUÇÃO</option>
+                                <option value="ENGENHARIA ELÉTRICA">ENGENHARIA ELÉTRICA</option>
+                                <option value="ENGENHARIA ELETRÔNICA">ENGENHARIA ELETRÔNICA</option>
+                                <option value="ENGENHARIA FLORESTAL">ENGENHARIA FLORESTAL</option>
+                                <option value="ENGENHARIA MECÂNICA">ENGENHARIA MECÂNICA</option>
+                                <option value="ENGENHARIA QUÍMICA">ENGENHARIA QUÍMICA</option>
+                                <option value="ESTATÍSTICA">ESTATÍSTICA</option>
+                                <option value="FARMÁCIA">FARMÁCIA</option>
+                                <option value="FILOSOFIA">FILOSOFIA</option>
+                                <option value="FÍSICA">FÍSICA</option>
+                                <option value="FÍSICA MÉDICA">FÍSICA MÉDICA</option>
+                                <option value="FISIOTERAPIA">FISIOTERAPIA</option>
+                                <option value="FONOAUDIOLOGIA">FONOAUDIOLOGIA</option>
+                                <option value="GEOGRAFIA">GEOGRAFIA</option>
+                                <option value="GEOLOGIA">GEOLOGIA</option>
+                                <option value="HISTÓRIA">HISTÓRIA</option>
+                                <option value="JORNALISMO">JORNALISMO</option>
+                                <option value="LETRAS ESPANHOL">LETRAS ESPANHOL</option>
+                                <option value="LETRAS FRANCÊS">LETRAS FRANCÊS</option>
+                                <option value="LETRAS INGLÊS">LETRAS INGLÊS</option>
+                                <option value="LETRAS LIBRAS">LETRAS LIBRAS</option>
+                                <option value="LETRAS PORTUGUÊS">LETRAS PORTUGUÊS</option>
+                                <option value="LETRAS PORTUGUÊS E INGLÊS">LETRAS PORTUGUÊS E INGLÊS</option>
+                                <option value="MATEMÁTICA">MATEMÁTICA</option>
+                                <option value="MATEMÁTICA APLICADA E COMPUTAÇÃO">MATEMÁTICA APLICADA E COMPUTAÇÃO</option>
+                                <option value="MEDICINA">MEDICINA</option>
+                                <option value="MEDICINA VETERINÁRIA">MEDICINA VETERINÁRIA</option>
+                                <option value="MUSEOLOGIA">MUSEOLOGIA</option>
+                                <option value="MÚSICA">MÚSICA</option>
+                                <option value="NUTRIÇÃO">NUTRIÇÃO</option>
+                                <option value="ODONTOLOGIA">ODONTOLOGIA</option>
+                                <option value="PEDAGOGIA">PEDAGOGIA</option>
+                                <option value="PSICOLOGIA">PSICOLOGIA</option>
+                                <option value="PUBLICIDADE E PROPAGANDA">PUBLICIDADE E PROPAGANDA</option>
+                                <option value="QUÍMICA">QUÍMICA</option>
+                                <option value="QUÍMICA INDUSTRIAL">QUÍMICA INDUSTRIAL</option>
+                                <option value="RELAÇÕES INTERNACIONAIS">RELAÇÕES INTERNACIONAIS</option>
+                                <option value="SECRETARIADO EXECUTIVO">SECRETARIADO EXECUTIVO</option>
+                                <option value="SERVIÇO SOCIAL">SERVIÇO SOCIAL</option>
+                                <option value="SISTEMAS DE INFORMAÇÃO">SISTEMAS DE INFORMAÇÃO</option>
+                                <option value="TEATRO">TEATRO</option>
+                                <option value="TURISMO">TURISMO</option>
+                                <option value="ZOOTECNIA">ZOOTECNIA</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">Calcular Média Ponderada</button>
+                </form>
+                
+                <div class="result-card" id="resultMediaPonderada" style="display: none;">
+                    <h3>Resultado</h3>
+                    <div class="result-content"></div>
+                </div>
+            </section>
+
+            <!-- Simulador SISU Section -->
+            <section class="content-section" id="simulador-sisu">
+                <div class="section-header">
+                    <h2>Simulador SISU</h2>
+                    <p>Simule suas chances em cursos específicos do SISU<br>OBS: Utilize o valor da média ponderada</p>
+                </div>
+                
+                <form class="form-card" id="formSimuladorSisu">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="media-enem">Média</label>
+                            <input type="number" id="media-enem" name="media-enem" min="0" max="1000" step="0.1" required>
+                        </div>
+                        
+                        
+                        <!-- Replaced text input with select dropdown for course selection -->
+                        <div class="form-group">
+                            <label for="curso-sisu">Curso</label>
+                            <select id="curso-sisu" name="curso" required>
+                                <option value="">Selecione um curso...</option>
+                                <option value="ADMINISTRAÇÃO">ADMINISTRAÇÃO</option>
+                                <option value="ARTES VISUAIS">ARTES VISUAIS</option>
+                                <option value="ASTRONOMIA">ASTRONOMIA</option>
+                                <option value="BIBLIOTECONOMIA E DOCUMENTAÇÃO">BIBLIOTECONOMIA E DOCUMENTAÇÃO</option>
+                                <option value="CINEMA E AUDIOVISUAL">CINEMA E AUDIOVISUAL</option>
+                                <option value="CIÊNCIA DA COMPUTAÇÃO">CIÊNCIA DA COMPUTAÇÃO</option>
+                                <option value="CIÊNCIAS ATUARIAIS">CIÊNCIAS ATUARIAIS</option>
+                                <option value="CIÊNCIAS BIOLÓGICAS">CIÊNCIAS BIOLÓGICAS</option>
+                                <option value="CIÊNCIAS CONTÁBEIS">CIÊNCIAS CONTÁBEIS</option>
+                                <option value="CIÊNCIAS DA RELIGIÃO">CIÊNCIAS DA RELIGIÃO</option>
+                                <option value="CIÊNCIAS ECONÔMICAS">CIÊNCIAS ECONÔMICAS</option>
+                                <option value="CIÊNCIAS SOCIAIS">CIÊNCIAS SOCIAIS</option>
+                                <option value="DANÇA">DANÇA</option>
+                                <option value="DESIGN">DESIGN</option>
+                                <option value="DIREITO">DIREITO</option>
+                                <option value="ECOLOGIA">ECOLOGIA</option>
+                                <option value="EDUCAÇÃO FÍSICA">EDUCAÇÃO FÍSICA</option>
+                                <option value="ENFERMAGEM">ENFERMAGEM</option>
+                                <option value="ENGENHARIA AGRÍCOLA">ENGENHARIA AGRÍCOLA</option>
+                                <option value="ENGENHARIA AGRONÔMICA">ENGENHARIA AGRONÔMICA</option>
+                                <option value="ENGENHARIA AMBIENTAL E SANITÁRIA">ENGENHARIA AMBIENTAL E SANITÁRIA</option>
+                                <option value="ENGENHARIA CIVIL">ENGENHARIA CIVIL</option>
+                                <option value="ENGENHARIA DE ALIMENTOS">ENGENHARIA DE ALIMENTOS</option>
+                                <option value="ENGENHARIA DE COMPUTAÇÃO">ENGENHARIA DE COMPUTAÇÃO</option>
+                                <option value="ENGENHARIA DE MATERIAIS">ENGENHARIA DE MATERIAIS</option>
+                                <option value="ENGENHARIA DE PESCA">ENGENHARIA DE PESCA</option>
+                                <option value="ENGENHARIA DE PETRÓLEO">ENGENHARIA DE PETRÓLEO</option>
+                                <option value="ENGENHARIA DE PRODUÇÃO">ENGENHARIA DE PRODUÇÃO</option>
+                                <option value="ENGENHARIA ELÉTRICA">ENGENHARIA ELÉTRICA</option>
+                                <option value="ENGENHARIA ELETRÔNICA">ENGENHARIA ELETRÔNICA</option>
+                                <option value="ENGENHARIA FLORESTAL">ENGENHARIA FLORESTAL</option>
+                                <option value="ENGENHARIA MECÂNICA">ENGENHARIA MECÂNICA</option>
+                                <option value="ENGENHARIA QUÍMICA">ENGENHARIA QUÍMICA</option>
+                                <option value="ESTATÍSTICA">ESTATÍSTICA</option>
+                                <option value="FARMÁCIA">FARMÁCIA</option>
+                                <option value="FILOSOFIA">FILOSOFIA</option>
+                                <option value="FÍSICA">FÍSICA</option>
+                                <option value="FÍSICA MÉDICA">FÍSICA MÉDICA</option>
+                                <option value="FISIOTERAPIA">FISIOTERAPIA</option>
+                                <option value="FONOAUDIOLOGIA">FONOAUDIOLOGIA</option>
+                                <option value="GEOGRAFIA">GEOGRAFIA</option>
+                                <option value="GEOLOGIA">GEOLOGIA</option>
+                                <option value="HISTÓRIA">HISTÓRIA</option>
+                                <option value="JORNALISMO">JORNALISMO</option>
+                                <option value="LETRAS ESPANHOL">LETRAS ESPANHOL</option>
+                                <option value="LETRAS FRANCÊS">LETRAS FRANCÊS</option>
+                                <option value="LETRAS INGLÊS">LETRAS INGLÊS</option>
+                                <option value="LETRAS LIBRAS">LETRAS LIBRAS</option>
+                                <option value="LETRAS PORTUGUÊS">LETRAS PORTUGUÊS</option>
+                                <option value="LETRAS PORTUGUÊS E INGLÊS">LETRAS PORTUGUÊS E INGLÊS</option>
+                                <option value="MATEMÁTICA">MATEMÁTICA</option>
+                                <option value="MATEMÁTICA APLICADA E COMPUTAÇÃO">MATEMÁTICA APLICADA E COMPUTAÇÃO</option>
+                                <option value="MEDICINA">MEDICINA</option>
+                                <option value="MEDICINA VETERINÁRIA">MEDICINA VETERINÁRIA</option>
+                                <option value="MUSEOLOGIA">MUSEOLOGIA</option>
+                                <option value="MÚSICA">MÚSICA</option>
+                                <option value="NUTRIÇÃO">NUTRIÇÃO</option>
+                                <option value="ODONTOLOGIA">ODONTOLOGIA</option>
+                                <option value="PEDAGOGIA">PEDAGOGIA</option>
+                                <option value="PSICOLOGIA">PSICOLOGIA</option>
+                                <option value="PUBLICIDADE E PROPAGANDA">PUBLICIDADE E PROPAGANDA</option>
+                                <option value="QUÍMICA">QUÍMICA</option>
+                                <option value="QUÍMICA INDUSTRIAL">QUÍMICA INDUSTRIAL</option>
+                                <option value="RELAÇÕES INTERNACIONAIS">RELAÇÕES INTERNACIONAIS</option>
+                                <option value="SECRETARIADO EXECUTIVO">SECRETARIADO EXECUTIVO</option>
+                                <option value="SERVIÇO SOCIAL">SERVIÇO SOCIAL</option>
+                                <option value="SISTEMAS DE INFORMAÇÃO">SISTEMAS DE INFORMAÇÃO</option>
+                                <option value="TEATRO">TEATRO</option>
+                                <option value="TURISMO">TURISMO</option>
+                                <option value="ZOOTECNIA">ZOOTECNIA</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="modalidade-sisu">Modalidade</label>
+                            <select id="modalidade-sisu" name="modalidade" required>
+                                <option value="">Selecione...</option>
+                                <option value="Ampla">Ampla Concorrência</option>
+                                <option value="Renda_1sm">Baixa Renda, Escola Pública</option>
+                                <option value="PPI_1sm">Baixa Renda, Escola Pública, PPI</option>
+                                <option value="Escola_pub">Escola Pública</option>
+                                <option value="PPI_pub">Escola Pública, PPI</option>
+                                <option value="PCD_1sm">Baixa Renda, Escola Pública, PCD</option>
+                                <option value="PCD_pub">Escola Pública, PCD</option>
+                                <option value="PCD_livre">PCD</option>
+                                <option value="Quilombo_1sm">Quilombola, Baixa Renda, Escola Pública</option>
+                                <option value="Quilombo_pub">Quilombola, Escola Pública</option>
+                            </select>
+                        </div>
+                        
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">Simular SISU</button>
+                </form>
+                
+                <div class="result-card" id="resultSimuladorSisu" style="display: none;">
+                    <h3>Resultado da Simulação</h3>
+                    <div class="result-content"></div>
+                </div>
+            </section>
+
+            <!-- Comparar Notas Section -->
+            <!-- Removed state field from Comparar Notas section -->
+            <section class="content-section" id="comparar-notas">
+                <div class="section-header">
+                    <h2>Comparar Notas</h2>
+                    <p>Compare suas notas com as médias estaduais</p>
+                </div>
+                
+                <form class="form-card" id="formCompararNotas">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="linguagens-comp">Linguagens</label>
+                            <input type="number" id="linguagens-comp" name="linguagens" min="0" max="1000" step="0.1" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="humanas-comp">Ciências Humanas</label>
+                            <input type="number" id="humanas-comp" name="humanas" min="0" max="1000" step="0.1" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="natureza-comp">Ciências da Natureza</label>
+                            <input type="number" id="natureza-comp" name="natureza" min="0" max="1000" step="0.1" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="matematica-comp">Matemática</label>
+                            <input type="number" id="matematica-comp" name="matematica" min="0" max="1000" step="0.1" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="redacao-comp">Redação</label>
+                            <input type="number" id="redacao-comp" name="redacao" min="0" max="1000" step="0.1" required>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">Comparar Notas</button>
+                </form>
+                
+                <div class="result-card" id="resultCompararNotas" style="display: none;">
+                    <h3>Comparação de Notas</h3>
+                    <div class="result-content"></div>
+                </div>
+            </section>
+
+            <!-- Sugestão de Foco Section -->
+            <section class="content-section" id="sugestao-foco">
+                <div class="section-header">
+                    <h2>Sugestão de Foco</h2>
+                    <p>Descubra em quais áreas você deve focar seus estudos</p>
+                </div>
+                
+                <form class="form-card" id="formSugestaoFoco">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="linguagens-foco">Linguagens</label>
+                            <input type="number" id="linguagens-foco" name="linguagens" min="0" max="1000" step="0.1" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="humanas-foco">Ciências Humanas</label>
+                            <input type="number" id="humanas-foco" name="humanas" min="0" max="1000" step="0.1" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="natureza-foco">Ciências da Natureza</label>
+                            <input type="number" id="natureza-foco" name="natureza" min="0" max="1000" step="0.1" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="matematica-foco">Matemática</label>
+                            <input type="number" id="matematica-foco" name="matematica" min="0" max="1000" step="0.1" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="redacao-foco">Redação</label>
+                            <input type="number" id="redacao-foco" name="redacao" min="0" max="1000" step="0.1" required>
+                        </div>
+                        
+                        <!-- Replaced text input with select dropdown for course selection -->
+                        <div class="form-group">
+                            <label for="curso-foco">Curso Desejado</label>
+                            <select id="curso-foco" name="curso" required>
+                                <option value="">Selecione um curso...</option>
+                                <option value="ADMINISTRAÇÃO">ADMINISTRAÇÃO</option>
+                                <option value="ARTES VISUAIS">ARTES VISUAIS</option>
+                                <option value="ASTRONOMIA">ASTRONOMIA</option>
+                                <option value="BIBLIOTECONOMIA E DOCUMENTAÇÃO">BIBLIOTECONOMIA E DOCUMENTAÇÃO</option>
+                                <option value="CINEMA E AUDIOVISUAL">CINEMA E AUDIOVISUAL</option>
+                                <option value="CIÊNCIA DA COMPUTAÇÃO">CIÊNCIA DA COMPUTAÇÃO</option>
+                                <option value="CIÊNCIAS ATUARIAIS">CIÊNCIAS ATUARIAIS</option>
+                                <option value="CIÊNCIAS BIOLÓGICAS">CIÊNCIAS BIOLÓGICAS</option>
+                                <option value="CIÊNCIAS CONTÁBEIS">CIÊNCIAS CONTÁBEIS</option>
+                                <option value="CIÊNCIAS DA RELIGIÃO">CIÊNCIAS DA RELIGIÃO</option>
+                                <option value="CIÊNCIAS ECONÔMICAS">CIÊNCIAS ECONÔMICAS</option>
+                                <option value="CIÊNCIAS SOCIAIS">CIÊNCIAS SOCIAIS</option>
+                                <option value="DANÇA">DANÇA</option>
+                                <option value="DESIGN">DESIGN</option>
+                                <option value="DIREITO">DIREITO</option>
+                                <option value="ECOLOGIA">ECOLOGIA</option>
+                                <option value="EDUCAÇÃO FÍSICA">EDUCAÇÃO FÍSICA</option>
+                                <option value="ENFERMAGEM">ENFERMAGEM</option>
+                                <option value="ENGENHARIA AGRÍCOLA">ENGENHARIA AGRÍCOLA</option>
+                                <option value="ENGENHARIA AGRONÔMICA">ENGENHARIA AGRONÔMICA</option>
+                                <option value="ENGENHARIA AMBIENTAL E SANITÁRIA">ENGENHARIA AMBIENTAL E SANITÁRIA</option>
+                                <option value="ENGENHARIA CIVIL">ENGENHARIA CIVIL</option>
+                                <option value="ENGENHARIA DE ALIMENTOS">ENGENHARIA DE ALIMENTOS</option>
+                                <option value="ENGENHARIA DE COMPUTAÇÃO">ENGENHARIA DE COMPUTAÇÃO</option>
+                                <option value="ENGENHARIA DE MATERIAIS">ENGENHARIA DE MATERIAIS</option>
+                                <option value="ENGENHARIA DE PESCA">ENGENHARIA DE PESCA</option>
+                                <option value="ENGENHARIA DE PETRÓLEO">ENGENHARIA DE PETRÓLEO</option>
+                                <option value="ENGENHARIA DE PRODUÇÃO">ENGENHARIA DE PRODUÇÃO</option>
+                                <option value="ENGENHARIA ELÉTRICA">ENGENHARIA ELÉTRICA</option>
+                                <option value="ENGENHARIA ELETRÔNICA">ENGENHARIA ELETRÔNICA</option>
+                                <option value="ENGENHARIA FLORESTAL">ENGENHARIA FLORESTAL</option>
+                                <option value="ENGENHARIA MECÂNICA">ENGENHARIA MECÂNICA</option>
+                                <option value="ENGENHARIA QUÍMICA">ENGENHARIA QUÍMICA</option>
+                                <option value="ESTATÍSTICA">ESTATÍSTICA</option>
+                                <option value="FARMÁCIA">FARMÁCIA</option>
+                                <option value="FILOSOFIA">FILOSOFIA</option>
+                                <option value="FÍSICA">FÍSICA</option>
+                                <option value="FÍSICA MÉDICA">FÍSICA MÉDICA</option>
+                                <option value="FISIOTERAPIA">FISIOTERAPIA</option>
+                                <option value="FONOAUDIOLOGIA">FONOAUDIOLOGIA</option>
+                                <option value="GEOGRAFIA">GEOGRAFIA</option>
+                                <option value="GEOLOGIA">GEOLOGIA</option>
+                                <option value="HISTÓRIA">HISTÓRIA</option>
+                                <option value="JORNALISMO">JORNALISMO</option>
+                                <option value="LETRAS ESPANHOL">LETRAS ESPANHOL</option>
+                                <option value="LETRAS FRANCÊS">LETRAS FRANCÊS</option>
+                                <option value="LETRAS INGLÊS">LETRAS INGLÊS</option>
+                                <option value="LETRAS LIBRAS">LETRAS LIBRAS</option>
+                                <option value="LETRAS PORTUGUÊS">LETRAS PORTUGUÊS</option>
+                                <option value="LETRAS PORTUGUÊS E INGLÊS">LETRAS PORTUGUÊS E INGLÊS</option>
+                                <option value="MATEMÁTICA">MATEMÁTICA</option>
+                                <option value="MATEMÁTICA APLICADA E COMPUTAÇÃO">MATEMÁTICA APLICADA E COMPUTAÇÃO</option>
+                                <option value="MEDICINA">MEDICINA</option>
+                                <option value="MEDICINA VETERINÁRIA">MEDICINA VETERINÁRIA</option>
+                                <option value="MUSEOLOGIA">MUSEOLOGIA</option>
+                                <option value="MÚSICA">MÚSICA</option>
+                                <option value="NUTRIÇÃO">NUTRIÇÃO</option>
+                                <option value="ODONTOLOGIA">ODONTOLOGIA</option>
+                                <option value="PEDAGOGIA">PEDAGOGIA</option>
+                                <option value="PSICOLOGIA">PSICOLOGIA</option>
+                                <option value="PUBLICIDADE E PROPAGANDA">PUBLICIDADE E PROPAGANDA</option>
+                                <option value="QUÍMICA">QUÍMICA</option>
+                                <option value="QUÍMICA INDUSTRIAL">QUÍMICA INDUSTRIAL</option>
+                                <option value="RELAÇÕES INTERNACIONAIS">RELAÇÕES INTERNACIONAIS</option>
+                                <option value="SECRETARIADO EXECUTIVO">SECRETARIADO EXECUTIVO</option>
+                                <option value="SERVIÇO SOCIAL">SERVIÇO SOCIAL</option>
+                                <option value="SISTEMAS DE INFORMAÇÃO">SISTEMAS DE INFORMAÇÃO</option>
+                                <option value="TEATRO">TEATRO</option>
+                                <option value="TURISMO">TURISMO</option>
+                                <option value="ZOOTECNIA">ZOOTECNIA</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">Obter Sugestões</button>
+                </form>
+                
+                <div class="result-card" id="resultSugestaoFoco" style="display: none;">
+                    <h3>Sugestões de Foco</h3>
+                    <div class="result-content"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="spinner"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
