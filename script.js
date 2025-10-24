@@ -518,7 +518,7 @@ function displayCursosResult(data) {
             .filter(([_, nota]) => Number(nota) > 0)
             .map(
               ([modalidade, nota]) =>
-                `<div class="nota-corte-item">${formatModalidade(modalidade)}: ${safeFixed(nota, 2)}</div>`,
+                `<div class="nota-corte-item">${formatModalidade(modalidade)}: ${Number(nota) > 0 ? safeFixed(nota, 2) : "-"}</div>`,
             )
             .join("")}
         </div>
