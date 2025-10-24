@@ -515,7 +515,7 @@ function displayCursosResult(data) {
         <h6 style="margin-top: 1rem; margin-bottom: 0.5rem; color: var(--text-secondary);">Notas de Corte por Modalidade:</h6>
         <div class="notas-corte-grid">
           ${Object.entries(p["Notas de corte"] || {})
-            .filter(([_, nota]) => Number(nota) > 0)
+          
             .map(
               ([modalidade, nota]) =>
                 `<div class="nota-corte-item">${formatModalidade(modalidade)}: ${Number(nota) > 0 ? safeFixed(nota, 2) : "-"}</div>`,
