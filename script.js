@@ -477,7 +477,7 @@ function displaySugestaoFocoResult(data, curso) {
         <h4>${d["Matéria"]}</h4>
         <p><strong>Sua nota:</strong> ${safeFixed(d["Sua nota"], 1)}</p>
         <p><strong>Peso:</strong> ${d["Peso"]}</p>
-        <p style="color: var(--warning);">Priorize essa matéria para melhorar sua média.</p>
+        <p style="color: var(--warning);">Priorize essa área para melhorar sua média.</p>
       </div>`,
       )
       .join("")}
